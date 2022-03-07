@@ -1,0 +1,4 @@
+Pengalaman Programming
+1. Membuat aplikasi GIS dengan Laravel dan Postgres
+2. Development Aplikasi WSManagement
+3. Development APlikasi Dispora Kab Bogor
