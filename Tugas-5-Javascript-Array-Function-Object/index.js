@@ -53,5 +53,5 @@ console.log(hitung(5)); // 8
 
 // Jawaban Soal 4
 function hitung(data) {
-  return data;
+  return (data+data) - 2;
 }
