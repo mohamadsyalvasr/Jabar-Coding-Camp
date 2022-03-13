@@ -99,3 +99,20 @@ var bulan = 12;
 var tahun = 2020;
 
 console.log(next_date(tanggal, bulan, tahun)); // output : 1 Januari 2021
+
+// Soal 2
+function jumlah_kata(data) {
+  data = data.replace(/(^\s*)|(\s*$)/gi, "");
+  data = data.replace(/[ ]{2,}/gi, " ");
+  data = data.replace(/\n /, "\n");
+  return data.split(" ").length;
+}
+
+var kalimat_1 =
+  " Halo nama saya                    Mohamad Syalva Syalabi Rosyidy ";
+var kalimat_2 = " Saya Syalva";
+var kalimat_3 = " Saya Mohamad Syalva Syalabi Rosyidy ";
+
+console.log(jumlah_kata(kalimat_1));
+console.log(jumlah_kata(kalimat_2));
+console.log(jumlah_kata(kalimat_3));
