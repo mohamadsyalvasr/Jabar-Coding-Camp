@@ -56,8 +56,6 @@ console.log(combined);
 
 // Soal 5
 // sederhanakan string berikut agar menjadi lebih sederhana menggunakan template literals ES6:
-
-// Jawaban Soal 5
 const planet = "earth";
 const view = "glass";
 var before =
@@ -67,5 +65,6 @@ var before =
   "consectetur adipiscing elit," +
   planet;
 
+// Jawaban Soal 5
 let after = `Lorem ${view} dolor sit amet, consectetur adipiscing elit, ${planet}`;
 console.log(after);
