@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 2</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="addUser" placeholder="Masukkan Nama">
+        <button @click="createUser" v-if="editButton">Add</button>
+        <button @click="updateUser" v-else>Update</button>
+        <ul>
+            <li v-for="(user, index) in users">{{ user.name }} <button @click="editUser(user.name, index)"
+                    style="margin-right: 5px;">Edit</button> || <button @click="deleteUser(index)">Delete</button></li>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                addUser: "",
+                editButton: true,
+                index: 0,
+                users: [
+                    { "name": "Muhammad Iqbal Mubarok" },
+                    { "name": "Roby Purwanti" },
+                    { "name": "Faqih Muhammad" }
+                ],
+            },
+            methods: {
+                createUser: function () {
+                    if (this.addUser != "") {
+                        this.addUser = { name: this.addUser }
+                        this.users.push(this.addUser);
+                        this.addUser = "";
+                    }
+                },
+                editUser: function (name, i) {
+                    this.addUser = name
+                    this.editButton = !this.editButton
+                    this.index = i
+                },
+                updateUser: function () {
+                    this.users[this.index].name = this.addUser
+                    this.addUser = ""
+                    this.editButton = !this.editButton
+                },
+                deleteUser: function (index) {
+                    if (confirm("Anda Yakin ?")) {
+                        this.users.splice(index, 1);
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
