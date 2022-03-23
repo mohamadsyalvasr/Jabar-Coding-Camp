@@ -22,24 +22,39 @@
 
         <button v-if="editButton" @click="updateUser">Update</button>
       </div>
-
-      <div class="usersList">
-        <ul>
-          <li v-for="(user , index) in reverseUsers" :key="index">
-            {{ user.name }} ||
-
-            <button @click="editUser(index)">Edit</button>
-
-            <button @click="deleteUser(index)">Delete</button>
-          </li>
-        </ul>
+      <div>
+        <users-component
+          v-for="(user, index) in reverseUsers"
+          :user="user"
+          :key="index"
+          @edit-user="editUser(index)"
+          @delete-user="deleteUser(index)"
+        ></users-component>
       </div>
     </div>
 
+    <template id="usersList">
+      <ul>
+        <li>
+          {{ user.name }} ||
+          <button @click="$emit('edit-user')">Edit</button>
+
+          <button @click="$emit('delete-user')">Delete</button>
+        </li>
+      </ul>
+    </template>
+
     <script>
+      let UsersComponent = {
+        template: "#usersList",
+        props: ["user", "index"],
+      };
+
       let vm = new Vue({
         el: "#app",
-
+        components: {
+          "users-component": UsersComponent,
+        },
         data: {
           users: [
             { name: "Muhammad Iqbal Mubarok" },
