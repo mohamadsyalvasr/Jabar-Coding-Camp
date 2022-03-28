@@ -255,6 +255,7 @@
 
           axios(config)
             .then( (response) => {
+                this.buttonStatus = 'submit'
               this.clearForm()
 
               this.getBlogs()
