@@ -54,7 +54,7 @@
    <br><br>
 
    <table border=1> 
-      <tr v-for="blogs  of blog">
+      <tr v-for="(blog, index) in blogs">
         <td>
           <img width=100 :src="blog.photo ? domain + blog.photo : 'https://dummyimage.com/16:9x1080'" alt="">
         </td>
