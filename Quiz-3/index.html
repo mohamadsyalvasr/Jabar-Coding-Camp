@@ -36,11 +36,11 @@
      <label>Description : </label>
      <textarea name="description" :disabled="buttonStatus == 'upload'" ref="description" v-model="description" ></textarea>
      
-     <div v-if="buttonStatus = 'submit'">
+     <div v-if="buttonStatus == 'submit'">
        <input type="submit" value="SUBMIT">
      </div>
      <div v-else-if="buttonStatus == 'update'">
-        <input type="button" @click:"updateBlog(idEditBlog)" value="UPDATE">
+        <input type="button" @click="updateBlog(idEditBlog)" value="UPDATE">
         <input type="button" value="CANCEL" @click="clearForm" style="margin-top:5px">
      </div>
       <div v-else-if="buttonStatus == 'upload'">
@@ -54,7 +54,7 @@
    <br><br>
 
    <table border=1> 
-      <tr v-for="(blog, index) in blogs">
+      <tr v-for="(blog, index) in blogs"  :key="index">
         <td>
           <img width=100 :src="blog.photo ? domain + blog.photo : 'https://dummyimage.com/16:9x1080'" alt="">
         </td>
